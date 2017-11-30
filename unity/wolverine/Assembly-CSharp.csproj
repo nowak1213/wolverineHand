@@ -51,9 +51,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AnkleThumbScript.cs" />
      <Compile Include="Assets\CameraScript.cs" />
      <Compile Include="Assets\EnemyLogic.cs" />
+     <Compile Include="Assets\FingerScript.cs" />
      <Compile Include="Assets\HandMovement.cs" />
+     <Compile Include="Assets\IMUData.cs" />
      <Compile Include="Assets\MeleeSystem.cs" />
      <None Include="Assets\sky5X\README.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
