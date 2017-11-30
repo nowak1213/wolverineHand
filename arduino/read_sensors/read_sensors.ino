@@ -1,39 +1,15 @@
-#include <Wire.h>
-#include "Adafruit_VCNL4010.h"
-
 #include "quaternionFilters.h"
 #include "MPU9250.h"
 
-Adafruit_VCNL4010 vcnl;
 MPU9250 IMU_1;
 MPU9250 IMU_2;
-
-// Linearization parameters
-float a = 16060000000;
-double b = -0.009126;
-double c = 12.44 ;
-double d = -0.0002938;
-double x;
-double distance ;
 
 #define SerialDebug false // Disable if you want clear serial print of data
 
 void setup() {
   if (SerialDebug) {
     Wire.begin();
-    Serial.begin(9600);
-    Serial.println("VCNL4010 connection test");
-  
-    if (! vcnl.begin()){
-      Serial.println("Sensor VCNL4010 not found");
-      while (1);
-    }
-    Serial.println("Found VCNL4010");
-  } else {
-    Wire.begin();
-    Serial.begin(9600);
-    
-    vcnl.begin();
+    Serial.begin(9600);   
     // Nie wiem do końca czy to potrzebne ??
     IMU_1.calibrateMPU9250(IMU_1.gyroBias, IMU_1.accelBias);
     IMU_2.calibrateMPU9250(IMU_2.gyroBias, IMU_2.accelBias);
@@ -138,9 +114,6 @@ if (IMU_2.readByte(MPU9250_ADDRESS, INT_STATUS) & 0x01) {
                        IMU_2.gy*DEG_TO_RAD, IMU_2.gz*DEG_TO_RAD, IMU_2.my,
                        IMU_2.mx, IMU_2.mz, IMU_2.deltat);
                        
-  // Read and calculate distance
-  x = vcnl.readProximity();
-  distance = a * exp(b * x) + c * exp(d * x) - 2;
   
   printData();
   delay(100);
@@ -191,8 +164,5 @@ void printData() {
   Serial.print(" qx = "); Serial.print(*(getQ() + 1));
   Serial.print(" qy = "); Serial.print(*(getQ() + 2));
   Serial.print(" qz = "); Serial.println(*(getQ() + 3));
-  
-  Serial.print(distance);
-  Serial.print(",");
 }
 

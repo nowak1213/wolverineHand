@@ -4,21 +4,14 @@
 MPU9250 IMU_1;
 MPU9250 IMU_2;
 
-#define SerialDebug false // Disable if you want clear serial print of data
-
 void setup() {
-  if (SerialDebug) {
-    Wire.begin();
-    Serial.begin(9600);   
-    // Nie wiem do końca czy to potrzebne ??
-    IMU_1.calibrateMPU9250(IMU_1.gyroBias, IMU_1.accelBias);
-    IMU_2.calibrateMPU9250(IMU_2.gyroBias, IMU_2.accelBias);
-    IMU_1.initMPU9250();
-    IMU_2.initMPU9250();
-    // Do magnetometru
-    IMU_1.initAK8963(IMU_1.magCalibration);
-    IMU_2.initAK8963(IMU_2.magCalibration);
-  }
+  Wire.begin();
+  Serial.begin(9600);   
+  // Nie wiem do końca czy to potrzebne ??
+  IMU_1.calibrateMPU9250(IMU_1.gyroBias, IMU_1.accelBias);
+  IMU_2.calibrateMPU9250(IMU_2.gyroBias, IMU_2.accelBias);
+  IMU_1.initMPU9250();
+  IMU_2.initMPU9250();
 }
 
 void loop() {
