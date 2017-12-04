@@ -9,6 +9,7 @@ public class IMUData : MonoBehaviour {
 
 	public static float handPositionX, handPositionY, handPositionZ, handRotationX, handRotationY, handRotationZ;
 	public static float thumbPositionX, thumbPositionY, thumbPositionZ, thumbRotationX, thumbRotationY, thumbRotationZ;
+	public static float distanceSensor1, distanceSensor2;
 
 	// Use this for initialization
 	void Start () {
@@ -58,13 +59,12 @@ public class IMUData : MonoBehaviour {
 				handRotationY += float.Parse(imuValues[1]) / 3000;
 				handRotationZ += float.Parse(imuValues[2]) / 3000;
 
-//				handPositionX = float.Parse(imuValues[3]) / 3000;
-//				handPositionY = float.Parse(imuValues[5]) / 3000;
-//				handPositionZ = float.Parse(imuValues[4]) / 3000;
+//				thumbRotationX += float.Parse(imuValues[3]) / 3000;
+//				thumbRotationY += float.Parse(imuValues[4]) / 3000;
+//				thumbRotationZ += float.Parse(imuValues[5]) / 3000;
 
-				thumbRotationX += float.Parse(imuValues[6]) / 3000;
-				thumbRotationY += float.Parse(imuValues[7]) / 3000;
-				thumbRotationZ += float.Parse(imuValues[8]) / 3000;
+				distanceSensor1 = float.Parse(imuValues[6]);
+				distanceSensor2 = float.Parse(imuValues[7]);
 
 				callback(dataString);
 

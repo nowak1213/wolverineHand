@@ -1,12 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\HandMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\IMUData.cs">
     <Files>
-      <File FileName="Assets\HandMovement.cs" Line="10" Column="2" />
-      <File FileName="Assets\CameraScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\FingerScript.cs" Line="10" Column="17" />
-      <File FileName="Assets\AnkleThumbScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\IMUData.cs" Line="1" Column="1" />
+      <File FileName="Assets\HandMovement.cs" Line="19" Column="37" />
+      <File FileName="Assets\CameraScript.cs" Line="24" Column="46" />
+      <File FileName="Assets\FingerScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\GrabObject.cs" Line="1" Column="1" />
+      <File FileName="Assets\AnkleColliderScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\IMUData.cs" Line="67" Column="49" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

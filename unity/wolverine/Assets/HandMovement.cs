@@ -14,14 +14,14 @@ public class HandMovement : MonoBehaviour {
 
 	void Update () {
 
-		this.handRotationZ = IMUData.handRotationX * 100;
+		this.handRotationZ = IMUData.handRotationY;
 
 		if (Input.GetKeyDown(KeyCode.K)) {
 			IMUData.handRotationX = 0.0f;
 		}
 
 
-		transform.localEulerAngles = new Vector3 (0, 0, -handRotationZ);
+		transform.localEulerAngles = new Vector3 (0, 0, handRotationZ);
 	}
 
 }

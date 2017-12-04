@@ -13,15 +13,15 @@ public class CameraScript : MonoBehaviour {
 
 	void Update () {
 
-		this.cameraRotationX = IMUData.handRotationY*250;
-		this.cameraRotationY = IMUData.handRotationZ*500;
+		this.cameraRotationX = IMUData.handRotationX;
+		this.cameraRotationY = IMUData.handRotationZ;
 
 		if (Input.GetKeyDown(KeyCode.K)) {
 			IMUData.handRotationY= 0.0f;
 			IMUData.handRotationZ= 0.0f;
 		}
 
-		transform.localEulerAngles = new Vector3 (cameraRotationX, -cameraRotationY, 0);
+		transform.localEulerAngles = new Vector3 (-cameraRotationX, cameraRotationY, 0);
 	}
 
 
