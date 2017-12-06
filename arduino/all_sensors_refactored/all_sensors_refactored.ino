@@ -157,8 +157,12 @@ void loop() {
   }
   
   i2c_transaction(0x80,8);
-  Serial.print(distance); Serial.print(",");
-  Serial.print(vcnl.readProximity()); Serial.print(",");
+  double x = distance;
+  double y = a * exp(b * x) + c * exp(d * x);
+  Serial.print(y); Serial.print(",");
+  x = vcnl.readProximity();
+  y = a * exp(b * x) + c * exp(d * x);
+  Serial.print(y); Serial.print(",");
   Serial.println("");
   
   delay(100);
@@ -246,10 +250,5 @@ void i2c_transaction(uint8_t reg, uint8_t dat){
   bus->stop();
   
   distance = word(data1,data2);
-}
-
-double linearization(double value) {
-  value = a * exp(b * value) + c * exp(d * value);
-  return value;
 }
 
