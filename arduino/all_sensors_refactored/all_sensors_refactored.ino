@@ -157,8 +157,8 @@ void loop() {
   }
   
   i2c_transaction(0x80,8);
-  Serial.print(linearization(distance)); Serial.print(",");
-  Serial.print(linearization(vcnl.readProximity())); Serial.print(",");
+  Serial.print(distance); Serial.print(",");
+  Serial.print(vcnl.readProximity()); Serial.print(",");
   Serial.println("");
   
   delay(100);
@@ -249,7 +249,7 @@ void i2c_transaction(uint8_t reg, uint8_t dat){
 }
 
 double linearization(double value) {
-  value = a * exp(b * value) + c * exp(d * value) - 2;
+  value = a * exp(b * value) + c * exp(d * value);
   return value;
 }
 
