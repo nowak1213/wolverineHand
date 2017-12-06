@@ -5,10 +5,10 @@
 
 #define Debug true  // Set to true to get all data output for debugging
 
-const double a = 11730;
-const double b = -1.001;
-const double c = 3885;
-const double d = -0.008787;
+double a = 11730;
+double b = -1.001;
+double c = 3885;
+double d = -0.008787;
 
 const int IMU_MAX = 2; // number of IMU to switch between
 const int SD0[IMU_MAX] = {7, 8}; // pins for SD0 connection to IMU
@@ -157,8 +157,10 @@ void loop() {
   }
   
   i2c_transaction(0x80,8);
-  double x = distance;
-  double y = a * exp(b * x) + c * exp(d * x);
+  double x;
+  double y
+  x = distance;
+  y = a * exp(b * x) + c * exp(d * x);
   Serial.print(y); Serial.print(",");
   x = vcnl.readProximity();
   y = a * exp(b * x) + c * exp(d * x);
