@@ -2,13 +2,24 @@
 #include "MPU9250.h"
 #include <SoftI2cMaster.h>
 #include "Adafruit_VCNL4010.h"
+#include <SoftwareSerial.h>
+#include <SerialCommand.h>
+#include <Servo.h>
+#define Debug false  // Set to true to get all data output for debugging
 
-#define Debug true  // Set to true to get all data output for debugging
+SerialCommand sCmd;
+Servo myservo1;
+Servo myservo2;
 
-double a = 11730;
-double b = -1.001;
-double c = 3885;
-double d = -0.008787;
+double a1 = 2217000000000;
+double b1 = -0.01119;
+double c1 = 49.13;
+double d1 = -0.0007755;
+
+double a2 = 82400;
+double b2 = -0.002715;
+double c2 = 6.865;
+double d2 = -0.00015;
 
 const int IMU_MAX = 2; // number of IMU to switch between
 const int SD0[IMU_MAX] = {7, 8}; // pins for SD0 connection to IMU
@@ -42,7 +53,10 @@ uint32_t timer[IMU_MAX];
 void setup() {
   delay(100);
   Wire.begin();
-  
+  pinMode(LED_BUILTIN, OUTPUT);
+  myservo1.attach(3);
+  myservo2.attach(5);
+
   // set all IMU in deactive mode (HIGH) on I2C  
   for (int i = 0; i < IMU_MAX; i++) {
     pinMode(SD0[i], OUTPUT);
@@ -126,9 +140,16 @@ void setup() {
   }
   
   Serial.begin(9600);
+  sCmd.addCommand("servo1True", servo1TrueHandler);
+  sCmd.addCommand("servo1False", servo1FalseHandler);
+  sCmd.addCommand("servo2True", servo2TrueHandler);
+  sCmd.addCommand("servo2False", servo2FalseHandler);
 }
 
 void loop() {
+  if (Serial.available() > 0)
+    sCmd.readSerial();
+
   for (int i = 0; i < IMU_MAX; i++) {
     digitalWrite(SD0[i], LOW);
     
@@ -158,12 +179,12 @@ void loop() {
   
   i2c_transaction(0x80,8);
   double x;
-  double y
+  double y;
   x = distance;
-  y = a * exp(b * x) + c * exp(d * x);
+  y = a2 * exp(b2 * x) + c2 * exp(d2 * x);
   Serial.print(y); Serial.print(",");
   x = vcnl.readProximity();
-  y = a * exp(b * x) + c * exp(d * x);
+  y = a1 * exp(b1 * x) + c1 * exp(d1 * x);
   Serial.print(y); Serial.print(",");
   Serial.println("");
   
@@ -178,9 +199,9 @@ void printIMUData(int n) {
   p_roll[n] = roll[n];
   p_pitch[n] = pitch[n];
   p_yaw[n] = yaw[n];
-  Serial.print(accXfilt[n], 2); Serial.print(",");
-  Serial.print(accYfilt[n], 2); Serial.print(",");
-  Serial.print(accZfilt[n], 2); Serial.print(",");
+//  Serial.print(accXfilt[n], 2); Serial.print(",");
+//  Serial.print(accYfilt[n], 2); Serial.print(",");
+//  Serial.print(accZfilt[n], 2); Serial.print(",");
 }
 
 void updateMPU9250(int n) {
@@ -252,5 +273,26 @@ void i2c_transaction(uint8_t reg, uint8_t dat){
   bus->stop();
   
   distance = word(data1,data2);
+}
+
+void pingHandler (const char *command) {
+ digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)                      // wait for a second
+ digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
+}
+
+void servo1TrueHandler (const char *command) {
+  myservo1.write(160);
+}
+
+void servo1FalseHandler (const char *command) {
+  myservo1.write(90);
+}
+
+void servo2TrueHandler (const char *command) {
+  myservo2.write(160);
+}
+
+void servo2FalseHandler (const char *command) {
+  myservo2.write(90);
 }
 
