@@ -16,10 +16,10 @@ double b1 = -0.01119;
 double c1 = 49.13;
 double d1 = -0.0007755;
 
-double a2 = 82400;
-double b2 = -0.002715;
-double c2 = 6.865;
-double d2 = -0.00015;
+double a2 = 489.8;
+double b2 = -0.002101;
+double c2 = 4.883;
+double d2 = -0.0000935;
 
 const int IMU_MAX = 2; // number of IMU to switch between
 const int SD0[IMU_MAX] = {7, 8}; // pins for SD0 connection to IMU
