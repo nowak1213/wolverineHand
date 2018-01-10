@@ -275,11 +275,6 @@ void i2c_transaction(uint8_t reg, uint8_t dat){
   distance = word(data1,data2);
 }
 
-void pingHandler (const char *command) {
- digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)                      // wait for a second
- digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
-}
-
 void servo1TrueHandler (const char *command) {
   myservo1.write(160);
 }
