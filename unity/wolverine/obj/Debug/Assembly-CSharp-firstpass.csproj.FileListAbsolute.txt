@@ -33,6 +33,5 @@ C:\Users\EO NETWORKS\Documents\wolverine\Temp\bin\Debug\UnityEngine.UIAutomation
 C:\Users\EO NETWORKS\Documents\wolverine\Temp\bin\Debug\UnityEngine.GoogleAudioSpatializer.xml
 C:\Users\EO NETWORKS\Documents\wolverine\Temp\bin\Debug\UnityEngine.HoloLens.xml
 C:\Users\EO NETWORKS\Documents\wolverine\Temp\bin\Debug\UnityEngine.SpatialTracking.xml
-C:\Users\EO NETWORKS\Documents\wolverine\obj\Debug\Assembly-CSharp-firstpass.csprojResolveAssemblyReference.cache
 C:\Users\EO NETWORKS\Documents\wolverine\obj\Debug\Assembly-CSharp-firstpass.dll
 C:\Users\EO NETWORKS\Documents\wolverine\obj\Debug\Assembly-CSharp-firstpass.pdb

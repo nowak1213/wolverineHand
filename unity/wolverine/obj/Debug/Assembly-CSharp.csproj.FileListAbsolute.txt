@@ -1,4 +1,3 @@
-C:\Users\EO NETWORKS\Documents\wolverine\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\Users\EO NETWORKS\Documents\wolverine\Temp\bin\Debug\Assembly-CSharp.dll
 C:\Users\EO NETWORKS\Documents\wolverine\Temp\bin\Debug\Assembly-CSharp.pdb
 C:\Users\EO NETWORKS\Documents\wolverine\Temp\bin\Debug\nunit.framework.dll
@@ -35,5 +34,6 @@ C:\Users\EO NETWORKS\Documents\wolverine\Temp\bin\Debug\UnityEngine.UIAutomation
 C:\Users\EO NETWORKS\Documents\wolverine\Temp\bin\Debug\UnityEngine.GoogleAudioSpatializer.xml
 C:\Users\EO NETWORKS\Documents\wolverine\Temp\bin\Debug\UnityEngine.HoloLens.xml
 C:\Users\EO NETWORKS\Documents\wolverine\Temp\bin\Debug\UnityEngine.SpatialTracking.xml
+C:\Users\EO NETWORKS\Documents\wolverine\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\Users\EO NETWORKS\Documents\wolverine\obj\Debug\Assembly-CSharp.dll
 C:\Users\EO NETWORKS\Documents\wolverine\obj\Debug\Assembly-CSharp.pdb

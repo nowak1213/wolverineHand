@@ -52,9 +52,18 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\CameraScript.cs" />
-     <Compile Include="Assets\EnemyLogic.cs" />
+     <Compile Include="Assets\ColisionTest.cs" />
+     <Compile Include="Assets\Finger1Connector.cs" />
+     <Compile Include="Assets\Finger1Script.cs" />
+     <Compile Include="Assets\Finger2Connector.cs" />
+     <Compile Include="Assets\Finger2Script.cs" />
+     <Compile Include="Assets\GrabObject.cs" />
+     <Compile Include="Assets\GravityScript.cs" />
      <Compile Include="Assets\HandMovement.cs" />
-     <Compile Include="Assets\MeleeSystem.cs" />
+     <Compile Include="Assets\IMUData.cs" />
+     <Compile Include="Assets\StaticHandCollider.cs" />
+     <Compile Include="Assets\ThumbConnector.cs" />
+     <Compile Include="Assets\ThumbScript.cs" />
      <None Include="Assets\sky5X\README.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
